@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
  html, body {
 margin: 0;
 padding: 0;
@@ -77,4 +77,12 @@ color: maroon;
 }
 table#movies th.hilite{
  background-color: yellow;
+}
+
+.btn-order {
+  color: rgb(255, 255, 0);
+  background-color: #72869c;
+  border-color: #72869c;
+  padding: 5px;
+  border-radius: 5px;
 }
