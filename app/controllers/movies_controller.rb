@@ -4,10 +4,13 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all.map(&:rating).uniq!
     @movies = if params[:sort_by]
       Movie.all.order(params[:sort_by])
+    elsif params[:ratings]
+      Movie.where(rating: params[:ratings].keys)
     else
       Movie.all
     end
   end
+
 
   def show
     id = params[:id]
