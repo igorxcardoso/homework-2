@@ -2,6 +2,8 @@
 class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all.map(&:rating).uniq!
+    @initial_value = '1'
+
     @movies = if params[:sort_by]
       Movie.all.order(params[:sort_by])
     elsif params[:ratings]
