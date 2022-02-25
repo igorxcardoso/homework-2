@@ -1,6 +1,7 @@
 -#  This file is app/views/movies/index.html.haml
 
-%h2
+
+%h2{:class=>"btn-order"}
   = link_to 'Ordenar', movies_path(sort_by: :title)
 
 %br
@@ -21,5 +22,12 @@
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
+
+
+  = form_tag movies_path, :method => :get do
+    - @all_ratings.each do |rating|
+      = rating
+      = check_box_tag "ratings[#{rating}]"
+    = submit_tag 'Refresh'
 
 = link_to 'Add new movie', new_movie_path
