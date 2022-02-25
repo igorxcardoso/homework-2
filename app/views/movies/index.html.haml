@@ -1,4 +1,10 @@
 -#  This file is app/views/movies/index.html.haml
+
+%h2
+  = link_to 'Ordenar', movies_path(sort_by: :title)
+
+%br
+
 %h1 All Movies
 
 %table#movies
@@ -11,7 +17,7 @@
   %tbody
     - @movies.each do |movie|
       %tr
-        %td= movie.title 
+        %td= movie.title
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
