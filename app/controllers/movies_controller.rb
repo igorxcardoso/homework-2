@@ -2,7 +2,9 @@
 class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all.map(&:rating).uniq!
-    @initial_value = '1'
+    @initial_value = "1"
+    @initial_checked = true
+    # @checked_items = ['R']
 
     @movies = if params[:sort_by]
       Movie.all.order(params[:sort_by])

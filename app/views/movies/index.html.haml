@@ -28,8 +28,13 @@
 = form_tag movies_path, :method => :get do
   - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]"
+    - if (@checked_items & [rating]).present?
+      = check_box_tag "ratings[#{rating}]"
+    - else
+      = check_box_tag "ratings[#{rating}]", value = @initial_value, checked = @initial_checked
   %br
   = submit_tag 'Refresh'
+
 %hr
+
 = link_to 'Add new movie', new_movie_path
